@@ -1,0 +1,55 @@
+footer {
+	background-color: $offblack;
+	.social-icons {
+		text-align: center;
+		margin-bottom: 45px;
+		@include make-xs-column(8);
+		@include make-xs-column-offset(2);
+		@include make-sm-column(2);
+		@include make-sm-column-offset(5);
+	}
+	a {
+		opacity: 0.8;
+		display: inline-block;
+		&:first-child {
+			margin-right: 23px;
+		}
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.icon {
+		fill: white;
+		vertical-align: middle;
+		&.facebook {
+			padding: 0 8px;
+			box-sizing: content-box;
+			width: 18px;
+			height: 32px;
+		}
+		&.twitter {
+			width: 30px;
+			height: 25px;
+		}
+	}
+	.colophon-wrapper {
+		margin: 0 0 15px;
+		@include make-sm-column(4);
+		@include make-sm-column-offset(4);
+	}
+	.colophon {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		font-size: 12px;
+		color: #858586;
+		border: 1px solid #29292c;
+		@extend %montserrat-style;
+	}
+}
+@media (min-width: $screen-xs-min) {
+	footer {
+		.colophon {
+			margin: 0 -11px;
+		}
+	}
+}

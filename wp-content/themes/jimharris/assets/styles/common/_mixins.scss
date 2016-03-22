@@ -1,0 +1,53 @@
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin button-style($color) {
+ 	transition: background ease-in-out .5s;
+ 	border-radius: 3px;
+	padding: 15px;
+ 	@include button-variant(white, $color, $color);
+	@extend %montserrat-style;
+	&:hover {
+		color: white;
+	}
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+%montserrat-style {
+	text-transform: uppercase;
+	font-family: $montserrat;
+	text-align: center;
+	letter-spacing: 1px;
+	@include font-smoothing;
+}

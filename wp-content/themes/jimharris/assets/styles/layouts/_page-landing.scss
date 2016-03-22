@@ -1,0 +1,209 @@
+//Hero Area
+.hero {
+	background-color: $black;
+	.logo {
+		margin-top: -25px;
+		margin-bottom: 10px;
+		@include make-xs-column-offset(1);
+		@include make-xs-column(10);
+		@include make-sm-column-offset(2);
+		@include make-sm-column(8);
+		@include make-md-column-offset(0);
+		@include make-md-column(6);
+		.icon {
+			width: 100%;
+			height: auto;
+			fill: white;
+		}
+	}
+	
+	form {
+		margin-top: -25px;
+		@include make-xs-column-offset(2);
+		@include make-xs-column(8);
+		@include make-md-column-offset(1);
+		@include make-md-column(4);
+		#SuccessMessage {
+			display: none;
+			color: white;
+			margin-top: 8px;
+		}
+		input, button {
+			width: 100%;
+		}
+		.form-group {
+			margin-bottom: 8px;
+			.form-control-feedback {
+				line-height: 52px;
+				height: 52px;
+			}
+			.glyphicon-ok {
+				color: $blue;
+			}
+			.glyphicon-remove {
+				cursor: pointer;
+			}
+			&.has-success, &.has-success .form-control {
+				border-color: $blue
+			}
+		}
+		input {
+			font-size: 18px;
+			border-radius: 3px;
+			padding: 25px 19px;
+			color: $primary-text;
+			@include font-smoothing;
+			@include placeholder {
+				color: $primary-text;
+			}
+		}
+		button.btn {
+			@include button-style($blue);
+		}
+		
+	}
+}
+
+.get-involved {
+	background-color: $offwhite;
+	text-align: center;
+	h2 {
+		color: $black;
+		@include make-sm-column(4);
+		@include make-sm-column-offset(4);
+	}
+	.tile {
+		margin-bottom: 50px;
+		@include make-sm-column(2);
+		@include make-sm-column-offset(1);
+		a {
+			span {
+				border-bottom: 0px solid $blue;
+				transition: all 0.2s linear;
+			}
+			&:hover {
+				span {
+					border-width: 3px;
+				}
+			}
+		}
+		&:first-child {
+			@include make-sm-column-offset(2);
+		}
+		&:last-child {
+			.icon-wrapper {
+				border-color: $red;
+			}
+			.subtitle {
+				color: $red;
+			}
+			a span {
+				border-color: $red;
+			}
+		}
+		.subtitle {
+			color: $blue;
+			@extend %montserrat-style;
+		}
+		.icon-wrapper {
+			height: 135px;
+			width: 135px;
+			border-radius: 73px;
+			border: 3px solid $blue;
+			margin: 0 auto 20px;
+			.icon {
+				max-height: 100%;
+				&.icon-sign-up {
+					width: 50px;
+				}
+				&.icon-volunteer {
+					width: 105px;
+				}
+				&.icon-contribute {
+					width: 80px;
+				}
+			}
+		}
+	}
+	p {
+		@include make-sm-column(10);
+		@include make-sm-column-offset(1);
+	}
+}
+
+.connect-now {
+	background-color: $black;
+	h2 {
+		color: white;
+	}
+	p {
+		color: $gray;
+		margin-bottom: 35px;
+		@include make-sm-column-offset(1);
+		@include make-sm-column(10);
+	}
+	
+	.instagram-feed {
+		margin-bottom: 30px;
+	}
+	
+	.post {
+		margin-top: 22px;
+		opacity: 0.8;
+		@include make-xs-column(6);
+		@include make-sm-column(3);
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.btn-wrapper {
+		@include make-xs-column(6);
+		@include make-sm-column(4);
+		&:first-child {
+			@include make-xs-column-offset(0);
+			@include make-sm-column-offset(2);
+		}
+	}
+	.btn {
+		width: 100%;
+	}
+	.btn-blue {
+		@include button-style($blue);
+	}
+	.btn-red {
+		@include button-style($red);
+	}
+}
+
+@media (min-width: $screen-xs-min) {
+	.connect-now {
+		.instagram-feed {
+			margin-bottom: 85px;
+		}
+	}
+}
+
+@media (min-width: $screen-sm-min) {
+	section {
+		padding: 88px 0;
+	}
+	.hero {
+		background-image: url('../images/hero.jpg');
+		background-size: cover;
+		max-height: 639px;
+		.logo {
+			margin-top: 0;
+		}
+		form {
+			margin-top: 0;
+			margin-bottom: 120px;
+		}
+	}
+}
+@media (min-width: $screen-md-min) {
+	.hero {
+		.logo .icon {
+			padding: 0 30px;
+		}
+	}
+}
